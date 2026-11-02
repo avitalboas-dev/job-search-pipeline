@@ -82,6 +82,14 @@ Without a CV, extraction still works, but the fit assessment has nothing real to
 3. Set `ANTHROPIC_API_KEY`, `APP_PASSWORD` and `CV_CONTENT` in the service variables.
 4. Every push to `master` redeploys.
 
+## Optional: let Claude search for roles
+
+`skills/job-search-scan/SKILL.md` is a [Claude skill](https://docs.claude.com/en/docs/claude-code/skills) that runs a job search for you. Tell it the **role**, the **place**, your **CV** and the address of your app. It then finds open roles, checks each one is still live on the company's own site, rates the fit against your CV, skips anything already in your board, and adds the rest as Shortlisted, plus companies worth watching as Watching.
+
+To use it, copy the `job-search-scan` folder into your Claude skills folder. Put your app password in the `JOB_APP_PASSWORD` environment variable, or give it when asked. The skill never saves it.
+
+---
+
 ## Good to know
 
 - **Your data stays with you.** Jobs live in your own SQLite file. Your CV is never in the repo. When you extract a role, the page text and your CV are sent to the Claude API.
@@ -98,6 +106,7 @@ backend/
   database.py      SQLite access
   models.py        Pipeline stages and data models
   routes/          jobs (CRUD) and extract (URL / file + Claude)
+skills/            Optional Claude skill that finds and saves roles
 frontend/src/
   pages/           Board, Add Role, Role detail
   api/jobs.js      API client
