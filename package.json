@@ -1,0 +1,6 @@
+{
+  "name": "job-search-pipeline-root",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Root package.json to signal Railpack that Node.js is required for the frontend build"
+}

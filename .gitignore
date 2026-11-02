@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+*.egg-info/
+venv/
+.venv/
+
+# Node
+frontend/node_modules/
+# Database — don't commit the live DB (use Railway volume for persistence)
+backend/jobs.db
+*.sqlite
+
+# Personal files not needed for deployment
+cv*.md
+*.skill
+search-test-output.md
+.claude/
+*.docx
+*.pdf
+
+# Personal AI-assistant instructions (stay on this machine)
+CLAUDE.md
+AGENTS.md
+
+# OS
+.DS_Store
